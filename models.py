@@ -1,10 +1,10 @@
 import mysql.connector
  
 db = mysql.connector.connect(
-    host = "us-cdbr-east-04.cleardb.com",
-    user = "b63d65243cd882",
-    passwd = "2e0005e6",
-    database = 'heroku_75676b5f90d8756'  
+    host = "sql4.freemysqlhosting.net",
+    user = "sql4448314",
+    passwd = "zSNdlwGWqY",
+    database = 'sql4448314'  
 )
 
 mycursor = db.cursor(buffered=True)

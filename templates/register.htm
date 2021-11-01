@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        {% include "includes/message.htm"%}
+        <h1>Register</h1>
+
+        <form action="{{url_for('register')}}" method='post'>
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="firstname" placeholder="Enter firstname" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="lastname" placeholder="Enter lastname" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="nrc" placeholder="Enter NRC number" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="location" placeholder=" Enter current location" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="guardian" placeholder="Enter your guardian name" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="reference" placeholder="Enter reference" required>
+            </div>
+            <div class="form-group">
+                <label for="Date">Enter Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="123456789" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="salary" placeholder="Enter salary" required>
+            </div>
+            <div class="form-group">
+                <label for="Date">Date of start:</label>
+                <input type="date" id="date" name="date">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary " type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

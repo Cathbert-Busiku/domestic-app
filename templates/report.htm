@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NRC</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Guardian</th>
+                    <th scope="col">Reference</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            {% for employee in employee %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{ employee[3] }}</th>
+                    <td>{{ employee[2] }}</td>
+                    <td>{{ employee[4] }}</td>
+                    <td>{{ employee[5] }}</td>
+                    <td>{{ employee[6] }}</td>
+                    <td>{{ employee[7] }}</td>
+                    <td>{{ employee[8] }}</td>
+                    <td>{{ employee[9] }}</td>
+
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+    </div>
+
+</body>
+
+</html>

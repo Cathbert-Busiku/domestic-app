@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Marvin</title>
+
+    <meta name="description" content="N.Agency - Responisve Landing Page for Agency">
+    <meta name="keywords" content="">
+    <meta name="author" content="tabthemes">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="static/material/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/material/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/material/img/apple-touch-icon-114x114.png">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="static/material/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- CSS Files For Plugin -->
+    <link href="static/material/css/animate.css" rel="stylesheet">
+    <link href="static/material/css/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <link href="static/material/css/magnific-popup.css" rel="stylesheet" />
+    <link href="static/material/css/YTPlayer.css" rel="stylesheet" />
+    <link href="static/material/inc/owlcarousel/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="static/material/inc/owlcarousel/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="static/material/inc/revolution/css/settings.css" rel="stylesheet" />
+    <link href="static/material/inc/revolution/css/layers.css" rel="stylesheet" />
+    <link href="static/material/inc/revolution/css/navigation.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/button.css">
+
+
+    <!-- Custom CSS -->
+    <link href="static/material/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+    <style>
+        footer {
+            margin-top: 30px;
+            background-color: hsla(240, 2%, 31%, 0.26)!important;
+        }
+        
+        footer p {
+            font-family: 'Roboto', sans-serif, Helvetica, Arial;
+            color: aliceblue;
+            font-size: 12px;
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        
+        h1 {
+            display: block;
+            font-weight: 700;
+            font-size: 36px;
+            color: #333333 !important;
+            line-height: 1.5em;
+            font-family: Open Sans, Arial, sans-serif;
+            padding-top: 50px;
+            padding-left: 70px;
+        }
+        
+        #slider {
+            overflow: hidden;
+        }
+        
+        #slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+        
+        #slider figure img {
+            width: 20%;
+            float: left;
+        }
+        
+        @keyframes slider {
+            0% {
+                left: 0;
+            }
+            20% {
+                left: 0;
+            }
+            25% {
+                left: -100%;
+            }
+            45% {
+                left: -100%;
+            }
+            50% {
+                left: -200%;
+            }
+            70% {
+                left: -200%;
+            }
+            75% {
+                left: -300%;
+            }
+            95% {
+                left: -300%;
+            }
+            100% {
+                left: -400%;
+            }
+        }
+        
+        .third {
+            height: 80px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            background: -webkit-linear-gradient(right, white 99%, orange 1%);
+            font-size: 18px;
+        }
+        
+        #fetch {
+            padding: 50px;
+            font-family: circular, roboto, Halvetica Neue, sans-serif;
+            font-size: 14px;
+            line-height: 1.43;
+            color: #484848;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .info {
+            width: auto;
+            height: auto;
+            margin: 0px 0px;
+            padding: 5px 5px;
+            border-radius: 10px;
+            background: -webkit-linear-gradient(bottom, white 95%, orange 5%);
+            border: 1px solid lightgray;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="homepage_slider" data-spy="scroll" data-target=".navbar-fixed-top" data-offset="100">
+
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="spinner"></div>
+    </div>
+    <!-- End Preloader-->
+
+
+    <!-- Start Navigation -->
+    {% include "includes/message.htm"%}
+    <section class="ftco-section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">Digital</a>
+                    <div class="social-media order-lg-last">
+                        <p class="mb-0 d-flex">
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                        </p>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="fa fa-bars"></span> Menu
+		      </button>
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto mr-md-3">
+                            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+
+                            <li class="nav-item"><a data-scroll href="#contact" class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a href="/home" class="nav-link">Admin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END nav -->
+        </div>
+
+    </section>
+
+    <!-- End Navigation -->
+
+
+    <!-- Start Intro -->
+    <section id="slider">
+        <div class="rev_slider_wrapper fullscreen-container" data-alias="agency-website" id="rev_slider_280_1_wrapper" style="background-color:#fff;padding:0px;height:1080px;">
+            <!-- START REVOLUTION SLIDER 5.1.4 fullscreen mode -->
+            <div class="rev_slider fullscreenbanner" id="rev_slider_nagency" style="display:none;">
+                <ul style="display:none;">
+
+                    <!-- slider Item 1 -->
+                    <li data-index="rs-1" data-transition="fadetotopfadefrombottom" data-slotamount="default" data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500" data-rotate="0" data-saveperformance="off" data-title="N.Agency" data-description="">
+                        <img src="static/material/img/slider/desk.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title tp-resizeme white-color rs-parallaxlevel-3" id="slide-1-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-160','-170','-170','-120']"
+                            data-fontsize="['70','60','60','36']" data-lineheight="['70','60','60','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="chars"
+                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Welcome to n. Agency
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-SubTitle tp-resizeme white-color rs-parallaxlevel-4" id="slide-1-layer-2" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-80','-90','-90','-60']"
+                            data-fontsize="['28','24','24','20']" data-lineheight="['28','24','36','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500" data-splitin="none"
+                            data-splitout="none" data-responsive_offset="on" style="z-index: 6; white-space: nowrap;">#1 digital solution in the city
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption rs-parallaxlevel-5" id="slide-1-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['15','5','5','10']" data-width="none" data-height="none"
+                            data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+                            data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                            data-responsive_offset="on" data-responsive="off" style=""><a data-scroll href='#portfolio' class='btn btn-main btn-white'>View Projects</a>
+                        </div>
+
+                    </li>
+
+                    <!-- slider Item 2 -->
+                    <li data-index="rs-3" data-transition="slideremoveright" data-slotamount="default" data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500" data-rotate="0" data-saveperformance="off">
+                        <img src="static/material/img/slider/desk3.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title tp-resizeme black-color rs-parallaxlevel-3" id="slide-2-layer-1" data-x="['left','left','left','left']" data-hoffset="['0','50','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-85']"
+                            data-fontsize="['70','60','60','36']" data-lineheight="['70','60','60','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rx:0deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="chars"
+                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Creative & Digital
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption tp-resizeme NotGeneric-Text black-color rs-parallaxlevel-4" id="slide-2-layer-2" data-x="['left','left','left','left']" data-hoffset="['0','50','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','-10']"
+                            data-fontsize="['18','18','20','14']" data-lineheight="['28','28','32','24']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500" data-splitin="none"
+                            data-splitout="none" data-responsive_offset="on" style="z-index: 6;">Particular unaffected projection sentiments no my. Music marry as at cause<br> party worth weeks. Saw how marianne graceful dissuade new outlived.<br> Uneasy no settle whence nature narrow.
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption rs-parallaxlevel-5" id="slide-2-layer-3" data-x="['left','left','left','left']" data-hoffset="['0','50','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['105','105','115','85']" data-width="none" data-height="none"
+                            data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+                            data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                            data-responsive_offset="on" data-responsive="off" style=""><a data-scroll href='#portfolio' class='btn btn-main btn-black'>View Projects</a>
+                        </div>
+
+                    </li>
+
+                    <!-- slider Item 3 -->
+                    <li data-index="rs-2" data-slotamount="default" data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500" data-rotate="0" data-saveperformance="off">
+                        <img alt="" class="rev-slidebg" data-bgparallax="3" data-bgposition="center center" data-duration="5000" data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0" data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0"
+                            data-scaleend="100" data-scalestart="110" src="static/material/img/slider/desk2.png">
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption NotGeneric-Title tp-resizeme white-color rs-parallaxlevel-3" id="slide-3-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-75','-70','-70','-45']"
+                            data-fontsize="['70','60','60','36']" data-lineheight="['70','60','60','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="chars"
+                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">100% Responsive.
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption NotGeneric-SubTitle white-color tp-resizeme rs-parallaxlevel-2" id="slide-3-layer-2" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                            data-fontsize="['28','24','24','20']" data-lineheight="['28','24','36','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500" data-splitin="none"
+                            data-splitout="none" data-responsive_offset="on" style="z-index: 6; white-space: nowrap;">Create Beautiful Websites
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption rs-parallaxlevel-5" id="slide-3-layer-3" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['90','90','100','75']" data-width="none" data-height="none"
+                            data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+                            data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                            data-responsive_offset="on" data-responsive="off" style=""><a href='#' class='btn btn-main btn-transparent-light'>Purchase Now</a>
+                        </div>
+
+                    </li>
+
+                </ul>
+                <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+            </div>
+        </div>
+    </section>
+    <!-- End Intro -->
+
+    <div style="background-color:  #6a737b; margin:0%">
+
+        <div id="fetch">
+            <article class="info">
+                <p color="black" style="margin-top: 5px;">Latest info about our business </p>
+
+                <p>AB Bank Zambia is an award-winning commercial bank established in October 2011 by AccessHolding together with other triple “A” rated investors. We offer tailored financial solutions such as business loans, transactional accounts, savings
+                    and term deposit accounts as well as a range of digital channels to our target group, the Zambian entrepreneurs and their families. Through our innovative eWallet “eTumba”, we deliver convenience to our customers and stay true to our
+                    philosophy of bringing financial inclusion to the masses.
+                    <a href="#">learn more</a>
+                </p>
+            </article>
+        </div>
+
+
+
+
+
+
+        <!-- Start Service -->
+        <section id="service" class="p-top-80 p-bottom-80">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <!-- Section Title -->
+                        <div class="section-title text-center m-bottom-40">
+                            <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s"><strong>Service</strong></h2>
+                            <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
+                            <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em>Cordially convinced did incommode existence put out suffering certainly. Besides another and saw ferrars limited ten say unknown. So mainly it was not that difficult to understand.</em></p>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+
+                <div class="row">
+
+                    <!-- Service Item 1 -->
+                    <div class="col-md-3 col-sm-6 m-bottom-20">
+                        <div class="service wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div class="service-icon">
+                                <i class="fa fa-desktop" aria-hidden="true"></i>
+                            </div>
+                            <h4>Web Design</h4>
+                            <div class="service-text">
+                                <p>On at tolerably depending do perceived. Luckily eat joy see own shyness minuter. So before remark at depart Did son unreserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- Service Item 2 -->
+                    <div class="col-md-3 col-sm-6 m-bottom-20">
+                        <div class="service wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div class="service-icon">
+                                <i class="fa fa-video-camera" aria-hidden="true"></i>
+                            </div>
+                            <h4>Video Production</h4>
+                            <div class="service-text">
+                                <p>Have spot part for his quit may. Enable it is square my an regard. Often merit stuff first oh up hills as his memorey got null in recording.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- Service Item 3 -->
+                    <div class="col-md-3 col-sm-6 m-bottom-20">
+                        <div class="service wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div class="service-icon">
+                                <i class="fa fa-modx" aria-hidden="true"></i>
+                            </div>
+                            <h4>Advertising</h4>
+                            <div class="service-text">
+                                <p>There spoke happy for you are out. Fertile how old address did showing because sitting replied six. Luckily eat joy see own shyness minuter.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- Service Item 4 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div class="service-icon">
+                                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                            </div>
+                            <h4>Branding</h4>
+                            <div class="service-text">
+                                <p>So striking at of to welcomed resolved. Northward by described up household therefore attention. Excellence decisively nay man yet impress.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- End Service -->
+
+
+
+        <div id='text'>
+            <h1>Ready to get started ?</h1>
+        </div>
+
+        <div id="boddy">
+            <div class="box">
+                <a href="{{url_for('register')}}" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">APPLY NOW</button></button>
+                </a>
+            </div>
+
+            <div class="box2">
+                <a href="#" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">BUTTON</button></button>
+                </a>
+            </div>
+
+            <div class="box3">
+                <a href="#" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">BUTTON</button></button>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Start Contact -->
+        <section id="contact" class="p-top-80 p-bottom-50">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <!-- Section Title -->
+                        <div class="section-title text-center m-bottom-40">
+                            <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s">Contact</h2>
+                            <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
+                            <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em>Lose away off why half led have near bed. At engage simple father of period others except. My giving do summer time dance hero of though narrow marked at.</em></p>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+
+                    <!-- === Contact Form === -->
+                    <div class="col-md-7 col-sm-7 p-bottom-30">
+                        <div class="contact-form row">
+
+                            <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                                <div class="col-sm-6 contact-form-item wow zoomIn">
+                                    <input name="name" id="name" type="text" placeholder="Your Name: *" />
+                                    <span class="error" id="err-name">please enter name</span>
+                                </div>
+                                <div class="col-sm-6 contact-form-item wow zoomIn">
+                                    <input name="email" id="email" type="text" placeholder="E-Mail: *" />
+                                    <span class="error" id="err-email">please enter e-mail</span>
+                                    <span class="error" id="err-emailvld">e-mail is not a valid format</span>
+                                </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                                </div>
+                                <div class="col-sm-12 contact-form-item">
+                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">submit</button>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
+                                <div class="error text-align-center" id="err-timedout">The connection to the server timed out!</div>
+                                <div class="error" id="err-state"></div>
+                            </form>
+
+                            <div class="clearfix"></div>
+                            <div id="ajaxsuccess">Successfully sent!!</div>
+                            <div class="clear"></div>
+
+                        </div>
+                        <!-- /.contacts-form & inner row -->
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- === Contact Information === -->
+                    <div class="col-md-5 col-sm-5 p-bottom-30">
+                        <address class="contact-info">
+
+                        <p class="m-bottom-30 wow slideInRight">Spring formal no county ye waited. My whether cheered at regular it of promise blushes perhaps.</p>
+
+                        <!-- === Location === -->
+                        <div class="m-top-20 wow slideInRight">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-location-arrow"></i>
+                            </div>
+                            <div class="contact-info-title">
+                                Address:
+                            </div>
+                            <div class="contact-info-text">
+                                149 Jambo Street, Kitwe, Zambia
+                            </div>
+                        </div>
+
+                        <!-- === Phone === -->
+                        <div class="m-top-20 wow slideInRight">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="contact-info-title">
+                                Phone number:
+                            </div>
+                            <div class="contact-info-text">
+                                +260-977-532-378
+                            </div>
+                        </div>
+
+                        <!-- === Mail === -->
+                        <div class="m-top-20 wow slideInRight">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-title">
+                                Email:
+                            </div>
+                            <div class="contact-info-text">
+                                marvin@gmail.com
+                            </div>
+                        </div>
+
+                    </address>
+                    </div>
+                    <!-- /.col -->
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- End Contact -->
+
+
+        <!-- Start Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <small class="copyright pull-left">Copyrights © 2019 All Rights Reserved By <a href="http://www.tabthemes.com/">tabthemes</a>.</small>
+                <div class="social-icon pull-right">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-rss"></i></a>
+                    <a href="#"><i class="fa fa-globe"></i></a>
+                </div>
+                <!-- /social-icon -->
+            </div>
+            <!-- /container -->
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- Back to top -->
+        <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a>
+        <!-- /Back to top -->
+
+
+        <!-- jQuery -->
+        <script src="static/material/js/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="static/material/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Components Plugin -->
+        <script src="static/material/js/jquery.easing.1.3.js"></script>
+        <script src="static/material/js/smooth-scroll.js"></script>
+        <script src="static/material/js/jquery.appear.js"></script>
+        <script src="static/material/js/jquery.countTo.js"></script>
+        <script src="static/material/js/jquery.stellar.min.js"></script>
+        <script src="static/material/js/jquery.magnific-popup.min.js"></script>
+        <script src="static/material/js/imagesloaded.pkgd.min.js"></script>
+        <script src="static/material/js/isotope.pkgd.min.js"></script>
+        <script src="static/material/js/jquery.mb.YTPlayer.js"></script>
+        <script src="static/material/js/retina.min.js"></script>
+        <script src="static/material/js/wow.min.js"></script>
+        <script src="static/material/inc/owlcarousel/js/owl.carousel.min.js"></script>
+        <script src="static/material/inc/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="static/material/inc/revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+        <!-- Contact Form -->
+        <script src="static/material/js/contact.js"></script>
+
+        <!-- Custom Plugin -->
+        <script src="static/material/js/custom.js"></script>
+
+        <!-- RS Plugin Extensions -->
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script src="static/material/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+
+
+        <script>
+            var tpj = jQuery;
+
+            var revapi280;
+            tpj(document).ready(function() {
+                if (tpj("#rev_slider_nagency").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_nagency");
+                } else {
+                    revapi280 = tpj("#rev_slider_nagency").show().revolution({
+                        sliderType: "standard",
+                        sliderLayout: "fullscreen",
+                        dottedOverlay: "none",
+                        delay: 90000,
+                        navigation: {
+                            keyboardNavigation: "off",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "off",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 1,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
+                            },
+                            arrows: {
+                                style: "uranus",
+                                enable: true,
+                                hide_onmobile: true,
+                                hide_under: 496,
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                tmp: '',
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 20,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 20,
+                                    v_offset: 0
+                                }
+                            }
+                        },
+                        responsiveLevels: [1200, 991, 767, 480],
+                        visibilityLevels: [1200, 991, 767, 480],
+                        gridwidth: [1200, 991, 767, 480],
+                        gridheight: [868, 768, 960, 720],
+                        lazyType: "none",
+                        parallax: {
+                            type: "mouse+scroll",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                            disable_onmobile: "on"
+                        },
+                        shadow: 0,
+                        spinner: "spinner2",
+                        autoHeight: "off",
+                        fullScreenAutoWidth: "off",
+                        fullScreenAlignForce: "off",
+                        fullScreenOffsetContainer: "",
+                        fullScreenOffset: "0",
+                        disableProgressBar: "on",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }
+            }); /*ready*/
+        </script>
+
+</body>
+
+</html>

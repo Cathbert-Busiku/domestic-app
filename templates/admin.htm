@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="static/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function showDiv() {
+            document.getElementById('centi').style.display = "block";
+            document.getElementById('cent').style.display = "none";
+            document.getElementById('center').style.display = "none";
+        };
+
+        function showDivs() {
+            document.getElementById('cent').style.display = "block";
+            document.getElementById('centi').style.display = "none";
+            document.getElementById('center').style.display = "none";
+        };
+
+        function showDivo() {
+            document.getElementById('center').style.display = "block";
+            document.getElementById('cent').style.display = "none";
+            document.getElementById('centi').style.display = "none";
+
+        };
+    </script>
+    <style>
+        body {
+            background: lightblue;
+            text-align: center;
+            box-sizing: border-box;
+            line-height: 1.5em;
+            font-family: Open Sans, Arial, sans-serif;
+            /*   position:relative; */
+        }
+        
+        .box {
+            float: left;
+            margin: 20px;
+            padding-left: 70px;
+        }
+        
+        .box2 {
+            float: left;
+            margin: 20px;
+            padding-left: 70px;
+        }
+        
+        .box3 {
+            float: left;
+            margin: 20px;
+            padding-left: 70px;
+        }
+        
+        .btn:link,
+        .btn:visited {
+            text-decoration: none;
+            text-transform: uppercase;
+            position: relative;
+            top: 0;
+            left: 0;
+            padding: 20px 40px;
+            border-radius: 100px;
+            display: inline-block;
+            transition: all .5s;
+        }
+        
+        .btn-white {
+            background: #fff;
+            color: #000;
+        }
+        
+        .btn:hover {
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .btn:active {
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .btn-bottom-animation-1 {
+            animation: comeFromBottom 1s ease-out .8s;
+        }
+        
+        .btn::after {
+            content: "";
+            text-decoration: none;
+            text-transform: uppercase;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+            display: inline-block;
+            z-index: -1;
+            transition: all .5s;
+        }
+        
+        .btn-white::after {
+            background: #fff;
+        }
+        
+        .btn-animation-1:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+        
+        .topper {
+            padding-bottom: 10%;
+        }
+        
+        .footer {
+            padding-top: 1%;
+            width: 45%;
+            border: 1px;
+            border-radius: 10px;
+            margin: 5% 25%;
+        }
+        
+        .footer p {
+            font-family: 'Roboto', sans-serif, Helvetica, Arial;
+            color: #000;
+            font-size: 16 px;
+            margin: 0%;
+        }
+        
+        @keyframes comeFromBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .footer {
+                display: flex;
+                padding-top: 1%;
+                width: 100%;
+                margin-top: 5%;
+                padding-right: 60%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topper">
+        <div class="box">
+            <a href="#" class="btn btn-white btn-animation-1" onclick="showDiv()">Search  Employee </a>
+        </div>
+        <div class="box2">
+            <a href="#" class="btn btn-white btn-animation-1" onclick="showDivs()">Search Employer</a>
+        </div>
+        <div class="box3">
+            <a href="#" class="btn btn-white btn-animation-1" onclick="showDivo()">Genarate a Report</a>
+        </div>
+    </div>
+
+
+
+    <div id="centi" style="display:none;">
+        <div id="mains">
+            <section>
+                <div class="container">
+
+
+                    <h1 class="h3 mb-3 font-weight-normal">Employee search</h1>
+
+                    <form action="{{url_for('admin')}}" method='post'>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="nrc" placeholder="Enter NRC number e.g  0011223 no /" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary " type="submit" onmouseleave="showDi()">Submit</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+    <div id="cent" style="display:none;">
+        <div id="mains">
+            <section>
+                <div class="container">
+
+
+                    <h1 class="h3 mb-3 font-weight-normal">Employer search</h1>
+
+                    <form action="{{url_for('admin')}}" method='post'>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="nrcs" placeholder="Enter NRC number e.g  0011223 no /" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary " type="submit" onmouseleave="showDi()">Submit</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div id="center" style="display:none;">
+        <div id="mains">
+            <section>
+                <div class="container">
+                    <h3 class="h3 mb-3 font-weight-normal">Choose the dates to Genarate a Report</h3>
+                    <form action="{{url_for('report')}}" method='post'>
+                        <div class="form-group">
+                            <label for="Date">Start Date:</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Date">End Date:</label>
+                            <input type="date" id="dates" name="dates">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary " type="submit" onmouseleave="showDi()">Submit</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="footer" id="search">
+
+
+        <div style=" background-color: #fff!important; padding:5% 2%;border: 1px;border-radius: 10px;">
+            <p style="color: green;"><b>YOU WILL RECEIVE YOUR SEARCH RESULTS</b></p>
+            {% include "includes/message.htm"%} {% for employee in employee %}
+            <p style="color:brown;">First Name : {{ employee[0]}}</p>
+
+            <p style="color:brown;">Last Name : {{ employee[1]}}</p>
+
+            <p style="color:brown;">NRC number : {{ employee[2]}}</p>
+
+            To view all empolyee details <a href='/admin/employee/{{employee[2]}}'>Employee</a> {%endfor%} {% for employer in employer %}
+            <p style="color:brown;">Name : {{ employer[0]}}</p>
+
+            <p style="color:brown;">NRC: {{ employer[1]}}</p>
+
+            To view all empolyer details <a href='/admin/employers/{{employer[1]}}'>Employer</a> {%endfor%}
+
+        </div>
+
+    </div>
+
+    <script src="static/jsss.js"></script>
+</body>
+
+</html>

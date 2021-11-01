@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: gray;
+    }
+    
+    table {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+    
+    .main {
+        width: auto;
+        margin-top: 5%;
+        background-color: #fff!important;
+        padding: 5%;
+        border: 1px;
+        border-radius: 10px;
+    }
+    
+    .first {
+        list-style-type: none;
+    }
+    
+    li p {
+        font-family: 'Roboto', sans-serif, Helvetica, Arial;
+        font-size: 16 px;
+        color: darkgreen;
+    }
+    
+    #then {
+        margin-left: 5%;
+    }
+    
+    #now {
+        margin-left: 25%;
+    }
+    
+    @media Screen and (min-width:1000px) {
+        #leto {
+            float: left;
+        }
+        #rito {
+            float: right;
+            margin-left: 40%;
+            border: 2px;
+            border-radius: 10px solid black;
+        }
+        .main {
+            width: auto;
+            margin-top: 5%;
+            background-color: #fff!important;
+            padding: 5%;
+            border: 1px;
+            border-radius: 10px;
+            display: flex;
+        }
+        .first a {
+            margin-left: 0;
+        }
+        #then {
+            margin-left: 0%;
+        }
+        #now {
+            margin-left: 0%;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="container" id="main">
+        <div class='main'>
+            <div id='leto'>
+                <ul class="first">
+                    <h3 style="text-align: center; margin-bottom:2%;">Employees Details</h3>
+                    {% for employee in employee %}
+                    <li style="padding-top:3%;">
+                        <p>NRC : <b>{{employee[3] }} </b></p>
+                    </li>
+                    <li>
+                        <p>Name :<b> {{employee[1]}} {{employee[2]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Location : <b>{{employee[4]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Guardian :<b>{{employee[5]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Employer :<b> {{employee[6]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Phone : <b>{{employee[7]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Salary :<b> {{employee[8]}}</b>
+                        </p>
+                    </li>
+                    <li>
+                        <p>Date of start :<b> {{employee[9]}} </b>
+                        </p>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div id='rito'>
+                {% include "includes/message.htm"%}
+                <ul class="first">
+                    <h3 style="text-align: center; margin-bottom:2%;">Employer Details</h3>
+                    {% for employer in employer %}
+                    <li style="padding-top:3%;">
+                        <p>NRC : <b>{{employer[2] }} </b></p>
+                    </li>
+                    <li>
+                        <p>Name :<b> {{employer[1]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Location : <b>{{employer[3]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Occupation :<b>{{employer[4]}} </b></p>
+                    </li>
+                    <li>
+                        <p>Employer Reference:<b> {{employer[5]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Phone Number:<b> {{employer[6]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Payment Details:<b> {{employer[7]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Date of edit if any:<b> {{employer[8]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Reason for edit:<b> {{employer[7]}}  </b></p>
+                    </li>
+                    {%endfor%}
+                </ul>
+                {% for employee in employee %}
+                <a class='btn btn-success' id='then' style="  width:auto;" href="/admin/employer/{{employee[3]}}">Add Employer</a> {%endfor%} {% for employer in employer %}
+                <a class='btn btn-warning' id='now' style="  width:auto;" href="/admin/employer/edit/{{employer[2]}}">Edit Employer</a> {%endfor%}
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Marvin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/button.css">
+
+    <style>
+        footer {
+            margin-top: 30px;
+            background-color: hsla(240, 2%, 31%, 0.26)!important;
+        }
+        
+        footer p {
+            font-family: 'Roboto', sans-serif, Helvetica, Arial;
+            color: aliceblue;
+            font-size: 12px;
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        
+        h1 {
+            display: block;
+            font-weight: 700;
+            font-size: 36px;
+            color: #333333 !important;
+            line-height: 1.5em;
+            font-family: Open Sans, Arial, sans-serif;
+            padding-top: 50px;
+            padding-left: 70px;
+        }
+        
+        #slider {
+            overflow: hidden;
+        }
+        
+        #slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+        
+        #slider figure img {
+            width: 20%;
+            float: left;
+        }
+        
+        @keyframes slider {
+            0% {
+                left: 0;
+            }
+            20% {
+                left: 0;
+            }
+            25% {
+                left: -100%;
+            }
+            45% {
+                left: -100%;
+            }
+            50% {
+                left: -200%;
+            }
+            70% {
+                left: -200%;
+            }
+            75% {
+                left: -300%;
+            }
+            95% {
+                left: -300%;
+            }
+            100% {
+                left: -400%;
+            }
+        }
+        
+        .third {
+            height: 80px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            background: -webkit-linear-gradient(right, white 99%, orange 1%);
+            font-size: 18px;
+        }
+        
+        #fetch {
+            padding: 50px;
+            font-family: circular, roboto, Halvetica Neue, sans-serif;
+            font-size: 14px;
+            line-height: 1.43;
+            color: #484848;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .info {
+            width: auto;
+            height: auto;
+            margin: 0px 0px;
+            padding: 5px 5px;
+            border-radius: 10px;
+            background: -webkit-linear-gradient(bottom, white 95%, orange 5%);
+            border: 1px solid lightgray;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    {% include "includes/message.htm"%}
+    <section class="ftco-section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">Digital</a>
+                    <div class="social-media order-lg-last">
+                        <p class="mb-0 d-flex">
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                        </p>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="fa fa-bars"></span> Menu
+		      </button>
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto mr-md-3">
+                            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Work</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END nav -->
+        </div>
+
+    </section>
+
+    <header>
+
+        <div id="slider">
+            <figure>
+                <img src="static/images/desk.png">
+                <img src="static/images/desk2.png">
+                <img src="static/images/desk.png">
+                <img src="static/images/desk3.png">
+                <img src="static/images/desk.png">
+            </figure>
+        </div>
+
+    </header>
+
+
+    <div style="background-color:  #6a737b; margin:0%">
+
+        <div id="fetch">
+            <article class="info">
+                <p color="black" style="margin-top: 5px;">Latest info about our business </p>
+
+                <p>AB Bank Zambia is an award-winning commercial bank established in October 2011 by AccessHolding together with other triple “A” rated investors. We offer tailored financial solutions such as business loans, transactional accounts, savings
+                    and term deposit accounts as well as a range of digital channels to our target group, the Zambian entrepreneurs and their families. Through our innovative eWallet “eTumba”, we deliver convenience to our customers and stay true to our
+                    philosophy of bringing financial inclusion to the masses.
+                    <a href="#">learn more</a>
+                </p>
+            </article>
+        </div>
+
+        <div id='text'>
+            <h1>Ready to get started ?</h1>
+        </div>
+
+        <div id="boddy">
+            <div class="box">
+                <a href="{{url_for('register')}}" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">APPLY NOW</button></button>
+                </a>
+            </div>
+
+            <div class="box2">
+                <a href="#" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">BUTTON</button></button>
+                </a>
+            </div>
+
+            <div class="box3">
+                <a href="#" class="btn btn-white btn-animation-1"> <button id="foot"><button class="button-os">BUTTON</button></button>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+
+            <ul style="background-color:inherent ">
+                <li></li>
+                <li>
+                    <p>CONTACT US </p>
+                </li>
+                <li>
+                    <p> <img src="static/icons/phone.png"> +260 97 1047402 </p>
+                </li>
+                <li>
+                    <a href="#">
+                        <p> <img src="static/icons/mail.png"> cathbertbusiku@gmail.com </p>
+                    </a>
+                </li>
+
+                <p style="text-align: center; background-color:#000; font-size: 14px;  margin-bottom: 0%;"> <b> Designed  by  Cathbert  The  Programmer </b></p>
+
+            </ul>
+
+        </footer>
+    </div>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+</body>
+
+</html>

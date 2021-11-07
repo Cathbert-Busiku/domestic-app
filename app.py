@@ -1,12 +1,16 @@
 import os
 import requests
-from flask import Flask, session, render_template, request, logging, url_for, flash, redirect
+from flask import Flask, session, render_template, request, logging, url_for, flash, redirect,Response
 from flask_session import Session
 from sqlalchemy import create_engine, or_
 from sqlalchemy.orm import scoped_session, sessionmaker
 from passlib.hash import sha256_crypt
 from datetime import datetime
-from models import mycursor, db
+from fpdf import FPDF
+import smtplib
+from database import mycursor, db
+# from model import mycursor, db
+
 
 
 
@@ -18,7 +22,7 @@ Session(app)
 
 # datetime object containing current date and time
 now = datetime.now()
-date = now.strftime("%d-%m-%Y %H:%M:%S")
+dates = now.strftime("%d-%m-%Y %H:%M:%S")
 
 
 @app.route("/" ,methods = ['GET','POST'])
@@ -40,30 +44,56 @@ def homes():
 def new():
     
      if request.method == "GET":
-        return render_template('new.htm')
+        return render_template('index.htm')
 
 @app.route("/register", methods=['GET','POST'])
 def register():
     if request.method == 'POST':
-        firstname = request.form.get("firstname")
-        lastname = request.form.get("lastname")
-        nrc = request.form.get("nrc")
+        name = request.form.get("name")
+        nrcs = request.form.get("nrc")
         location = request.form.get("location")
-        guardian = request.form.get("guardian")
+        occupation = request.form.get("occupation")
         reference = request.form.get("reference")
         phone = request.form.get("phone")
         salary = request.form.get("salary")
-        date = request.form.get("date")
+       
+        search = "SELECT nrc FROM employer WHERE nrc = %(nrc)s"
+        mycursor.execute(search, {'nrc': nrcs })
+        myresult = mycursor.fetchone()
+        
+        if myresult is None:
+            mycursor.execute("INSERT INTO employer (name,nrc, location,occupation,reference,phone,payment_details) VALUES (%s,%s,%s,%s,%s,%s,%s)", 
+                         (name, nrcs, location, occupation,reference,phone,salary,))
+            db.commit()
+        
+            flash("you successfully registered","success")
+            return redirect(url_for('index'))
+         
+        if int(nrcs) == int(myresult[0]): 
+                
+            flash("The NRC is already registered","danger")
+            return render_template('register.htm')
+            
+        
+    return render_template("register.htm")
 
         
-        mycursor.execute("INSERT INTO employ (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
-                         (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date))
-        db.commit()
+        
+        # firstname = request.form.get("firstname")
+        # lastname = request.form.get("lastname")
+        # nrc = request.form.get("nrc")
+        # location = request.form.get("location")
+        # guardian = request.form.get("guardian")
+        # reference = request.form.get("reference")
+        # phone = request.form.get("phone")
+        # salary = request.form.get("salary")
+        # date = request.form.get("date")
 
-        flash("you successfully registered","success")
-        return redirect(url_for('index'))
-    
-    return render_template("register.htm")
+        
+        # mycursor.execute("INSERT INTO employ (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+        #                  (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date))
+        # db.commit()
+
 
   
     
@@ -151,6 +181,7 @@ def admin():
           if myresult == []:
             flash("No one with that NRC ", "danger")
             return redirect(url_for('admin'))
+           
           else:    
             return render_template('admin.htm', employee = myresult)
         
@@ -161,7 +192,7 @@ def admin():
         
             if myresult == []:
               flash("No one with that NRC ", "danger")
-              return redirect(url_for('home'))
+              return redirect(url_for('admin'))
             else:    
                return render_template('admin.htm', employer = myresult)
             
@@ -187,7 +218,7 @@ def employee(nrc):
    
    
 
-@app.route('/admin/employer/<int:nrc>', methods =['GET', 'POST'] )
+@app.route('/admin/addEmployee/<int:nrc>', methods =['GET', 'POST'] )
 def employer(nrc):
     
     search = "SELECT * FROM employ WHERE nrc = %(nrc)s"
@@ -196,60 +227,68 @@ def employer(nrc):
     for result in myresult:
             id = result[3]
     
-    if request.method == 'POST':
-        name = request.form.get("name")
-        nrcs = request.form.get("nrc")
+    if request.method == 'POST': 
+        firstname = request.form.get("firstname")
+        lastname = request.form.get("lastname")
+        nrc = request.form.get("nrc")
         location = request.form.get("location")
-        occupation = request.form.get("occupation")
+        guardian = request.form.get("guardian")
         reference = request.form.get("reference")
         phone = request.form.get("phone")
         salary = request.form.get("salary")
-       
-
+        date = request.form.get("date")
         
-        mycursor.execute("INSERT INTO employer (name,nrc, location,occupation,reference,phone,payment_details) VALUES (%s,%s,%s,%s,%s,%s,%s)", 
-                         (name, nrcs, location, occupation,reference,phone,salary,))
-        db.commit()
+        search = "SELECT nrc FROM employ WHERE nrc = %(nrc)s"
+        mycursor.execute(search, {'nrc': nrc })
+        myresult = mycursor.fetchone()
+        
+        if myresult is None:
+           mycursor.execute("INSERT INTO employ (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                         (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date))
+           db.commit()
+        
+           flash("you successfully added an employer","success")
+           return redirect(url_for('employee',nrc = id))
+         
+        if int(nrc) == int(myresult[0]):             
+            flash("The NRC is already registered","danger")
+            return render_template('registerEmployee.htm')
 
-        flash("you successfully added an employer","success")
-        return redirect(url_for('employee',nrc = id))
-        #render_template('employee.htm',employee = myresult)
-           
-    else:
-        return render_template("employer.htm",id = id)
+    return render_template("registerEmployee.htm",id = id)
     
+        
     
      
-@app.route('/admin/employer/edit/<int:nrc>', methods =['GET', 'POST'] )
+@app.route('/admin/employee/edit/<int:nrc>', methods =['GET', 'POST'] )
 def edit(nrc):
     
-    search = "SELECT * FROM employer WHERE nrc = %(nrc)s"
+    search = "SELECT * FROM employ WHERE nrc = %(nrc)s"
     mycursor.execute(search, {'nrc': nrc })
     myresult = mycursor.fetchall()
     for result in myresult:
-        id = result[2]
+        id = result[3]
     
     if request.method == 'POST':
-        name = request.form.get("name")
-        nrcs = request.form.get("nrc")
+        firstname = request.form.get("firstname")
+        lastname = request.form.get("lastname")
         location = request.form.get("location")
-        occupation = request.form.get("occupation")
+        guardian = request.form.get("guardian")
         reference = request.form.get("reference")
         phone = request.form.get("phone")
         salary = request.form.get("salary")
+        date = request.form.get("date")
         reason = request.form.get('reason')
-       
-
-             
-        sets = "UPDATE employer SET name = %(name)s,location=%(location)s,occupation=%(occupation)s,reference=%(reference)s,phone=%(phone)s,payment_details=%(payment_details)s,edit_reason=%(edit_reason)s,date_edited=%(date_edited)s WHERE nrc = %(nrc)s "
-        mycursor.execute(sets, {'name':name,'location':location,'occupation':occupation,'reference':reference,'phone':phone,'payment_details':salary,'edit_reason':reason, 'date_edited': date, 'nrc':id })
+        
+      
+        sets = "UPDATE employ SET firstname = %(firstname)s,lastname = %(lastname)s, location = %(location)s,guardian=%(guardian)s,reference=%(reference)s,phone=%(phone)s,salary=%(salary)s,edit_reason=%(edit_reason)s, date = %(date)s, date_edited=%(date_edited)s WHERE nrc = %(nrc)s "
+        mycursor.execute(sets, {'firstname':firstname,'lastname':lastname,'location':location,'guardian':guardian,'reference':reference,'phone':phone,'salary':salary,'edit_reason':reason, 'date':date,'date_edited': dates, 'nrc':id })
         db.commit()
         
-        flash("you successfully added an employer","success")
-        return redirect(url_for('home'))
+        flash("you successfully edited an employer","success")
+        return redirect(url_for('admin'))
     
     else:
-        return render_template("edit.htm", id = id)
+        return render_template("editEmployee.htm", id = id)
     
 
        
@@ -276,28 +315,29 @@ def employers(nrc):
          return render_template('employers.htm', employer = myresult, employee = employee)
      
 
-@app.route('/admin/employer/add', methods =['GET', 'POST'] )
-def addemployer():
+@app.route('/admin/employee/add', methods =['GET', 'POST'] )
+def addemployee():
     
     if request.method == 'POST':
-        name = request.form.get("name")
-        nrcs = request.form.get("nrc")
+        firstname = request.form.get("firstname")
+        lastname = request.form.get("lastname")
+        nrc = request.form.get("nrc")
         location = request.form.get("location")
-        occupation = request.form.get("occupation")
+        guardian = request.form.get("guardian")
         reference = request.form.get("reference")
         phone = request.form.get("phone")
         salary = request.form.get("salary")
-       
+        date = request.form.get("date")
 
         
-        mycursor.execute("INSERT INTO employer (name,nrc, location,occupation,reference,phone,payment_details) VALUES (%s,%s,%s,%s,%s,%s,%s)", 
-                         (name, nrcs, location, occupation,reference,phone,salary,))
+        mycursor.execute("INSERT INTO employ (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                         (firstname, lastname ,nrc, location, guardian,reference,phone,salary,date))
         db.commit()
 
-        flash("you successfully added an employer","success")      
+        flash("you successfully added an employee","success")      
         return redirect(url_for('admin'))
            
-    return render_template("add.htm")
+    return render_template("addEmployee.htm")
 
     
 @app.route('/admin/report', methods=['GET','POST'])
@@ -307,15 +347,106 @@ def report():
        
         date1 = request.form.get("date")
         date2 = request.form.get("dates")
+        content = request.form.get("access")
         
-        sea = " SELECT * FROM employ WHERE  date BETWEEN  %s AND %s"
-        mycursor.execute(sea, (date1, date2))
-        myresult = mycursor.fetchall()
-        
+        if content  =='employ':
+           sea = " SELECT * FROM employ WHERE  date BETWEEN  %s AND %s"
+           mycursor.execute(sea, (date1, date2))
+           myresult = mycursor.fetchall()
+           
+           amount = "SELECT SUM(salary) FROM employ" 
+           mycursor.execute(amount)
+           totalAmount = mycursor.fetchall()[0][0]
+           
+            
+           return render_template('report.htm', employee = myresult, amount = totalAmount)
+           
        
-        return render_template('report.htm', employee = myresult)      
-  
+           
+        # else: 
+        #    sea = " SELECT * FROM employer WHERE  date BETWEEN  %s AND %s"
+        #    mycursor.execute(sea, (date1, date2))
+        #    myresult = mycursor.fetchall()
+        #    return render_template('report.htm', employee = myresult)     
+
+@app.route('/download/report/pdf')
+def download_report():
+      
+        mycursor.execute("SELECT * FROM employ")
+        result = mycursor.fetchall()
+ 
+        pdf = FPDF()
+        pdf.add_page()
+         
+        page_width = pdf.w - 2 * pdf.l_margin
+         
+        pdf.set_font('Arial','B',14.0) 
+        pdf.cell(page_width, 0.0,'LINKUS MAID CENTER EMPLOYEE REPORT', align='C')
+        pdf.ln(10)
+ 
+        pdf.set_font('Courier', '', 10)
+         
+        col_width = page_width/8
+         
+        pdf.ln(1)
+         
+        th = pdf.font_size
+        pdf.cell(col_width, th, 'First name', border=1)
+        pdf.cell(col_width, th, 'Last name', border=1)
+        pdf.cell(col_width, th, 'NRC', border=1)
+        pdf.cell(col_width, th, 'Location', border=1)
+        pdf.cell(col_width, th, 'Reference', border=1)
+        pdf.cell(col_width, th, 'Phone', border=1)
+        pdf.cell(col_width, th, 'Salary', border=1)
+        pdf.cell(col_width, th, 'Date of start', border=1)
+        pdf.ln(th)
+         
+        for row in result:
+            pdf.cell(col_width, th, str(row[1]), border=1)
+            pdf.cell(col_width, th, row[2], border=1)
+            pdf.cell(col_width, th, str(row[3]), border=1)
+            pdf.cell(col_width, th, row[4], border=1)
+            pdf.cell(col_width, th, row[6], border=1)
+            pdf.cell(col_width, th, str(row[7]), border=1)
+            pdf.cell(col_width, th, str(row[8]), border=1)
+            pdf.cell(col_width, th, row[9], border=1)
+            pdf.ln(th)
+         
+        pdf.ln(10)
+         
+        pdf.set_font('Arial','',10.0) 
+        pdf.cell(page_width, 0.0, '- end of report -', align='C')
+         
+        return Response(pdf.output(dest='S').encode('latin-1'), mimetype='application/pdf', headers={'Content-Disposition':'attachment;filename=LINKUS MAID CENTER_report.pdf'})
+   
+@app.route('/email', methods=['GET','POST'])
+def email():
     
+    if request.method == "POST":
+       
+        names = request.form.get("name")
+        address = request.form.get("email")
+        heading = request.form.get("subject")
+        content = request.form.get("message")
+        
+        app_pass = "nfenrszaqkbuerqt"
+        host_user = "linkusmaidcenter@gmail.com"
+        
+        smtp = smtplib.SMTP('smtp.gmail.com', 587)
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.ehlo()
+        
+        smtp.login(host_user,app_pass)
+        
+        name = names
+        Subject = heading.upper()
+        Body = content
+        msg = f"{Subject}\n\n{name}\n\n{Body}"
+        
+        return smtp.sendmail(address, host_user,msg)
+        
+         
 
 if __name__ == "__main__":
     app.secret_key='\x8a\x02\xe2\xed/\xee\xf1#\xbea\xd1\x02\xab|\xa5n'

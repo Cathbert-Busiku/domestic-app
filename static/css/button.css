@@ -1,5 +1,5 @@
 #boddy {
-    height: 300px;
+    height: 100px;
     /* background: lightblue; */
     background-color: #6a737b;
     text-align: center;
@@ -11,9 +11,7 @@
 }
 
 .box {
-    float: left;
     margin: 20px;
-    padding-left: 70px;
 }
 
 .box2 {
@@ -180,7 +178,7 @@ button:hover {
 
 @media (max-width: 991.98px) {
     #boddy {
-        height: 400px;
+        height: 120px;
         /* background: lightblue; */
         background-color: #6a737b;
         text-align: center;
@@ -191,3 +189,8 @@ button:hover {
         /*   position:relative; */
     }
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {}

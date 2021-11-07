@@ -19,28 +19,30 @@
   footer {
       margin: 30px;
   }
+  /* Extra small devices (phones, 600px and down) */
   
-  @media Screen and (min-width:1000px) {
-      section {
-          width: 60%;
-      }
-  }
-  
-  @media (max-width: 700px) {
+  @media only screen and (max-width: 600px) {
       #mains {
-          padding-top: 200px;
-          padding-left: 25%;
+          padding-top: 40px;
+          padding-left: 0%;
+          margin-left: 6%;
       }
       #centi {
-          margin-top: 20%;
           display: relative;
           justify-content: center;
-          margin-right: 20%;
+          margin-right: 0%;
       }
       section {
           width: 90%;
           display: flex;
           justify-content: center;
-          margin-right: 20%;
+          margin-right: 0%;
+          background-color: #FFF;
+      }
+  }
+  
+  @media Screen and (min-width:1000px) {
+      section {
+          width: 60%;
       }
   }

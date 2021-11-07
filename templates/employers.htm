@@ -39,21 +39,29 @@
         color: darkgreen;
     }
     
-    #then {
-        margin-left: 5%;
-    }
-    
-    #now {
-        margin-left: 25%;
+    @media only screen and (max-width: 600px) {
+        .first a {
+            margin-left: 0;
+        }
+        #then {
+            margin-left: 0%;
+            font-size: 12px;
+        }
+        #now {
+            margin-left: 3%;
+            font-size: 12px;
+        }
     }
     
     @media Screen and (min-width:1000px) {
         #leto {
             float: left;
+            padding-right: 0%;
+            width: auto;
         }
         #rito {
             float: right;
-            margin-left: 40%;
+            margin-left: 30%;
             border: 2px;
             border-radius: 10px solid black;
         }
@@ -71,20 +79,32 @@
         }
         #then {
             margin-left: 0%;
+            font-size: 12px;
         }
         #now {
             margin-left: 0%;
+            font-size: 12px;
         }
     }
 </style>
 
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('admin')}}">Admin</a>
+        </li>
+
+    </nav>
+
     <div class="container" id="main">
         <div class='main'>
             <div id='leto'>
                 <ul class="first">
-                    <h3 style="text-align: center; margin-bottom:2%;">Employer Details</h3>
+                    <h4 style=" margin-bottom:2%; text-align:center;">Employer Details</h4>
                     {% for employer in employer %}
                     <li style="padding-top:3%;">
                         <p>NRC : <b>{{employer[2] }} </b></p>
@@ -107,16 +127,10 @@
                     <li>
                         <p>Payment Details:<b> {{employer[7]}}  </b></p>
                     </li>
-                    <li>
-                        <p>Date of edit if any:<b> {{employer[9]}}  </b></p>
-                    </li>
-                    <li>
-                        <p>Reason for edit:<b> {{employer[8]}}  </b></p>
-                    </li>
+                    {%endfor%} {% for employer in employer %}
+                    <a class='btn btn-success' id='then' style="  width:auto;" href="/admin/employee/add">Add Employee</a> {%endfor%} {% for employer in employer %}
+                    <a class='btn btn-warning' id='now' style="  width:auto;" href="/admin/employee/edit/{{employer[2]}}">Edit Employee</a> {%endfor%}
                 </ul>
-                {%endfor%} {% for employer in employer %}
-                <a class='btn btn-success' id='then' style="  width:auto;" href="/admin/employer/add">Add Employer</a> {%endfor%} {% for employer in employer %}
-                <a class='btn btn-warning' id='now' style="  width:auto;" href="/admin/employer/edit/{{employer[2]}}">Edit Employer</a> {%endfor%}
 
 
 
@@ -124,12 +138,11 @@
             <div id='rito'>
                 {% include "includes/message.htm"%}
                 <ol type="1" class="first">
-                    <h5 style="text-align: center; margin-bottom:2%;">The Employer has the following Employees</h5>
+                    <h5 style=" margin-top:5%;">The Employer has the following Employees</h5>
                     {% for employee in employee %}
                     <li style="padding-top:3%;">
                         <p>Name :<b> {{employee[0]}} {{employee[1]}} </b> <br> NRC : <b>{{employee[2] }} </b></p>
                     </li>
-
                     {%endfor%}
                 </ol>
 

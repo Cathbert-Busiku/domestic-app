@@ -10,50 +10,17 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="padding-top:3%">
         {% include "includes/message.htm"%}
         <h1>Register</h1>
-        <form action="{{url_for('register')}}" method='post'>
 
-            <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="Enter name" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="number" name="nrc" placeholder="Enter NRC number" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="location" placeholder=" Enter current location" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="occupation" placeholder="Enter your occupation" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="reference" placeholder="Enter reference as Your NRC number" required>
-            </div>
-            <div class="form-group">
-                <label for="Date">Enter Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="123456789" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="number" name="salary" placeholder="Enter the salary you giving your employee" required>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary " type="submit">Submit</button>
-            </div>
-
-
-        </form>
-
-        <!-- <form action="{{url_for('register')}}" method='post'>
+        <form action='/admin/employee/edit/{{id}}' method='post'>
 
             <div class="form-group">
                 <input class="form-control" type="text" name="firstname" placeholder="Enter firstname" required>
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" name="lastname" placeholder="Enter lastname" required>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="number" name="nrc" placeholder="Enter NRC number" required>
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" name="location" placeholder=" Enter current location" required>
@@ -75,11 +42,15 @@
                 <label for="Date">Date of start:</label>
                 <input type="date" id="date" name="date">
             </div>
+            <div class="form-group purple-border">
+                <label for="exampleFormControlTextarea4">why are you editing?</label>
+                <textarea class="form-control" id="exampleFormControlTextarea4" name='reason' placeholder="Enter the reason for editing" rows="3"></textarea>
+            </div>
             <div class="form-group">
                 <button class="btn btn-primary " type="submit">Submit</button>
             </div>
 
-        </form> -->
+        </form>
     </div>
 
 

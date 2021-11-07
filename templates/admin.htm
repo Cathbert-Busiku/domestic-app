@@ -2,12 +2,22 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>Amdmin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="static/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/button.css">
+
+
+
     <script>
         function showDiv() {
             document.getElementById('centi').style.display = "block";
@@ -36,6 +46,12 @@
             line-height: 1.5em;
             font-family: Open Sans, Arial, sans-serif;
             /*   position:relative; */
+        }
+        
+        .topper {
+            display: flex;
+            justify-content: center;
+            margin-top: 3%;
         }
         
         .box {
@@ -131,6 +147,19 @@
             margin: 0%;
         }
         
+        ul {
+            padding-inline-start: 0px;
+            margin-top: 2%;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        a {
+            color: #000;
+        }
+        
         @keyframes comeFromBottom {
             0% {
                 opacity: 0;
@@ -141,14 +170,45 @@
                 transform: translateY(0);
             }
         }
+        /* Extra small devices (phones, 600px and down) */
         
-        @media (max-width: 991.98px) {
-            .footer {
+        @media only screen and (max-width: 600px) {
+            .topper {
                 display: flex;
+                justify-content: center;
+                margin-top: 3%;
+            }
+            .box {
+                margin: 8px;
+                padding-left: 0;
+            }
+            .box2 {
+                margin: 8px;
+                padding-left: 0;
+            }
+            .box3 {
+                margin: 8px;
+                padding-left: 0;
+            }
+            .footer {
                 padding-top: 1%;
-                width: 100%;
-                margin-top: 5%;
-                padding-right: 60%;
+                width: 95%;
+                border: 1px;
+                border-radius: 10px;
+                margin: 25% 2%;
+                padding-right: 0%;
+            }
+            .btn:link,
+            .btn:visited {
+                text-decoration: none;
+                text-transform: uppercase;
+                position: relative;
+                top: 0;
+                left: 0;
+                padding: 5%;
+                border-radius: 100px;
+                display: inline-block;
+                transition: all .5s;
             }
         }
     </style>
@@ -156,9 +216,21 @@
 
 <body>
 
+    <div>
+
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <a href="{{url_for('index')}}" class="navbar-brand">Bootdey.com</a>
+                <li><a href="{{url_for('addemployee')}}" class="nav-item nav-link active" style="font-size: 14px;"> Add Employee </a></li>
+                <li><a href="{{url_for('addemployee')}}" class="nav-item nav-link active" style="font-size: 14px;"> Monthly Report </a></li>
+            </div>
+        </nav>
+
+    </div>
+
     <div class="topper">
         <div class="box">
-            <a href="#" class="btn btn-white btn-animation-1" onclick="showDiv()">Search  Employee </a>
+            <a href="#search Employee" class="btn btn-white btn-animation-1" onclick="showDiv()">Search  Employee </a>
         </div>
         <div class="box2">
             <a href="#" class="btn btn-white btn-animation-1" onclick="showDivs()">Search Employer</a>
@@ -170,21 +242,20 @@
 
 
 
+
     <div id="centi" style="display:none;">
         <div id="mains">
             <section>
                 <div class="container">
-
-
                     <h1 class="h3 mb-3 font-weight-normal">Employee search</h1>
 
-                    <form action="{{url_for('admin')}}" method='post'>
+                    <form id='myForm' action="{{url_for('admin')}}" method='post'>
                         <div class="form-group">
                             <input class="form-control" type="number" name="nrc" placeholder="Enter NRC number e.g  0011223 no /" required>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary " type="submit" onmouseleave="showDi()">Submit</button>
+                            <button id='submitBtn' type='none' class="btn btn-primary">Submit</button>
                         </div>
 
                     </form>
@@ -211,7 +282,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary " type="submit" onmouseleave="showDi()">Submit</button>
+                            <button class="btn btn-primary " type="submit" onclick="refresh()">Submit</button>
                         </div>
 
                     </form>
@@ -229,6 +300,11 @@
                 <div class="container">
                     <h3 class="h3 mb-3 font-weight-normal">Choose the dates to Genarate a Report</h3>
                     <form action="{{url_for('report')}}" method='post'>
+                        <label for="cars">choose Report by:</label>
+                        <select id="cars" name="access">
+                        <option value="employ">EMPLOYEE</option>
+                        <option value="employer">EMPLOYER</option>
+                        </select>
                         <div class="form-group">
                             <label for="Date">Start Date:</label>
                             <input type="date" id="date" name="date">
@@ -256,7 +332,9 @@
 
         <div style=" background-color: #fff!important; padding:5% 2%;border: 1px;border-radius: 10px;">
             <p style="color: green;"><b>YOU WILL RECEIVE YOUR SEARCH RESULTS</b></p>
-            {% include "includes/message.htm"%} {% for employee in employee %}
+            <p style="padding-inline-start:0%;"> {% include "includes/message.htm"%} </p>{% for employee in employee %}
+
+
             <p style="color:brown;">First Name : {{ employee[0]}}</p>
 
             <p style="color:brown;">Last Name : {{ employee[1]}}</p>
@@ -275,6 +353,11 @@
     </div>
 
     <script src="static/jsss.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/main.js"></script>
+
 </body>
 
 </html>

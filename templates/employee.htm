@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/nav.js">
+
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/nav.js">
+
 </head>
 <style>
     body {
@@ -47,6 +54,23 @@
         margin-left: 25%;
     }
     
+    @media only screen and (max-width: 600px) {
+        .first a {
+            margin-left: 0;
+        }
+        #then {
+            margin-left: 10%;
+            font-size: 12px;
+        }
+        #now {
+            margin-left: 3%;
+            font-size: 12px;
+        }
+        #rito {
+            margin-top: 8%;
+        }
+    }
+    
     @media Screen and (min-width:1000px) {
         #leto {
             float: left;
@@ -79,18 +103,27 @@
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('admin')}}">Admin</a>
+        </li>
 
+    </nav>
     <div class="container" id="main">
         <div class='main'>
             <div id='leto'>
                 <ul class="first">
-                    <h3 style="text-align: center; margin-bottom:2%;">Employees Details</h3>
+                    <h3 style=" margin-bottom:2%;">Employees Details</h3>
                     {% for employee in employee %}
+
                     <li style="padding-top:3%;">
-                        <p>NRC : <b>{{employee[3] }} </b></p>
+                        <p>Name :<b> {{employee[1]}} {{employee[2]}} </b></p>
                     </li>
                     <li>
-                        <p>Name :<b> {{employee[1]}} {{employee[2]}} </b></p>
+                        <p>NRC : <b>{{employee[3] }} </b></p>
                     </li>
                     <li>
                         <p>Location : <b>{{employee[4]}} </b></p>
@@ -99,7 +132,7 @@
                         <p>Guardian :<b>{{employee[5]}} </b></p>
                     </li>
                     <li>
-                        <p>Employer :<b> {{employee[6]}}  </b></p>
+                        <p>Reference :<b> {{employee[6]}}  </b></p>
                     </li>
                     <li>
                         <p>Phone : <b>{{employee[7]}} </b></p>
@@ -112,13 +145,22 @@
                         <p>Date of start :<b> {{employee[9]}} </b>
                         </p>
                     </li>
+                    <li>
+                        <p>Date of edit if any:<b> {{employee[11]}}  </b></p>
+                    </li>
+                    <li>
+                        <p>Reason for edit:<b> {{employee[10]}}  </b></p>
+                    </li>
                     {%endfor%}
                 </ul>
+                {% for employee in employee %}
+                <a class='btn btn-success' id='then' style="  width:auto;" href="/admin/addEmployee/{{employee[3]}}">Add Employee</a>
+                <a class='btn btn-warning' id='now' style="  width:auto;" href="/admin/employee/edit/{{employee[3]}}">Edit Employee</a> {%endfor%}
             </div>
             <div id='rito'>
                 {% include "includes/message.htm"%}
                 <ul class="first">
-                    <h3 style="text-align: center; margin-bottom:2%;">Employer Details</h3>
+                    <h3 style=" margin-bottom:2%;">Employer Details</h3>
                     {% for employer in employer %}
                     <li style="padding-top:3%;">
                         <p>NRC : <b>{{employer[2] }} </b></p>
@@ -141,17 +183,10 @@
                     <li>
                         <p>Payment Details:<b> {{employer[7]}}  </b></p>
                     </li>
-                    <li>
-                        <p>Date of edit if any:<b> {{employer[8]}}  </b></p>
-                    </li>
-                    <li>
-                        <p>Reason for edit:<b> {{employer[7]}}  </b></p>
-                    </li>
+
                     {%endfor%}
                 </ul>
-                {% for employee in employee %}
-                <a class='btn btn-success' id='then' style="  width:auto;" href="/admin/employer/{{employee[3]}}">Add Employer</a> {%endfor%} {% for employer in employer %}
-                <a class='btn btn-warning' id='now' style="  width:auto;" href="/admin/employer/edit/{{employer[2]}}">Edit Employer</a> {%endfor%}
+
             </div>
 
         </div>

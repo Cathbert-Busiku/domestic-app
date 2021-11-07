@@ -1,5 +1,3 @@
-import os
-import requests
 from flask import Flask, session, render_template, request, logging, url_for, flash, redirect,Response
 from flask_session import Session
 from sqlalchemy import create_engine, or_

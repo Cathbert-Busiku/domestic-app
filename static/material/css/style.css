@@ -38,7 +38,7 @@ body {
 body {
     background: #fff;
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    font-family: circular, roboto, Halvetica Neue, sans-serif;
     color: #ffffff;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 a {
-    color: #ed5f5e;
+    color: #007bff;
     text-decoration: none;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -61,7 +61,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: #e51b1a;
+    color: #e83e8c;
     text-decoration: none;
     outline: 0;
 }

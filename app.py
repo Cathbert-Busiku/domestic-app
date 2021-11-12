@@ -8,6 +8,7 @@ from passlib.hash import sha256_crypt
 from datetime import datetime
 from fpdf import FPDF
 import smtplib
+from datetime import date
 from database import mycursor, db
 # from model import mycursor, db
 
@@ -21,6 +22,9 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # datetime object containing current date and time
+dates = date.today()
+today = dates.strftime("%Y-%m-%d")
+
 now = datetime.now()
 dates = now.strftime("%d-%m-%Y %H:%M:%S")
 
@@ -62,8 +66,8 @@ def register():
         myresult = mycursor.fetchone()
         
         if myresult is None:
-            mycursor.execute("INSERT INTO employer (name,nrc, location,occupation,reference,phone,payment_details) VALUES (%s,%s,%s,%s,%s,%s,%s)", 
-                         (name, nrcs, location, occupation,reference,phone,salary,))
+            mycursor.execute("INSERT INTO employer (name,nrc, location,occupation,reference,phone,payment_details,date) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)", 
+                         (name, nrcs, location, occupation,reference,phone,salary,today))
             db.commit()
         
             flash("you successfully registered","success")
@@ -354,8 +358,8 @@ def report():
            mycursor.execute(sea, (date1, date2))
            myresult = mycursor.fetchall()
            
-           amount = "SELECT SUM(salary) FROM employ" 
-           mycursor.execute(amount)
+           amount = "SELECT SUM(salary) FROM employ WHERE  date BETWEEN  %s AND %s" 
+           mycursor.execute(amount,(date1, date2))
            totalAmount = mycursor.fetchall()[0][0]
            
             
@@ -363,11 +367,11 @@ def report():
            
        
            
-        # else: 
-        #    sea = " SELECT * FROM employer WHERE  date BETWEEN  %s AND %s"
-        #    mycursor.execute(sea, (date1, date2))
-        #    myresult = mycursor.fetchall()
-        #    return render_template('report.htm', employee = myresult)     
+        else: 
+            sea = " SELECT * FROM employer WHERE  date BETWEEN  %s AND %s"
+            mycursor.execute(sea, (date1, date2))
+            myresult = mycursor.fetchall()
+            return render_template('report.htm', employee = myresult)     
 
 @app.route('/download/report/pdf')
 def download_report():

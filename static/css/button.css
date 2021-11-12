@@ -1,7 +1,7 @@
 #boddy {
     height: 100px;
     /* background: lightblue; */
-    background-color: #6a737b;
+    background-color: #ffffff;
     text-align: center;
     box-sizing: border-box;
     font-family: "Lato", Sans-serif;
@@ -180,7 +180,7 @@ button:hover {
     #boddy {
         height: 120px;
         /* background: lightblue; */
-        background-color: #6a737b;
+        background-color: #fff;
         text-align: center;
         box-sizing: border-box;
         font-family: "Lato", Sans-serif;

@@ -62,7 +62,6 @@
 
     <style>
         footer {
-            margin-top: 30px;
             background-color: hsla(240, 2%, 31%, 0.26)!important;
         }
         
@@ -72,6 +71,10 @@
             font-size: 12px;
             padding: 10px;
             margin-bottom: 0%;
+        }
+        
+        p {
+            font-family: circular, roboto, Halvetica Neue, sans-serif;
         }
         
         h1 {
@@ -143,7 +146,7 @@
         }
         
         #fetch {
-            padding: 50px;
+            padding: 50px 0px;
             font-family: circular, roboto, Halvetica Neue, sans-serif;
             font-size: 14px;
             line-height: 1.43;
@@ -153,7 +156,7 @@
         }
         
         .info {
-            width: auto;
+            width: 95%;
             height: auto;
             margin: 0px 0px;
             padding: 5px 5px;
@@ -197,18 +200,25 @@
                                 <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a> -->
                             </p>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('index')}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('admin')}}">Admin</a>
+                        </li>
+
+                        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 		        <span class="fa fa-bars"></span> Menu
 		      </button>
                         <div class="collapse navbar-collapse" id="ftco-nav">
                             <ul class="navbar-nav ml-auto mr-md-3">
-                                <!-- <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+                                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">About</a></li> 
 
                                 <li class="nav-item"><a data-scroll href="#contact" class="nav-link">Contact</a></li>
                                 <li class="nav-item"><a href="/home" class="nav-link">Admin</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </nav>
                 <!-- END nav -->
@@ -234,7 +244,7 @@
                         <div class="tp-caption NotGeneric-Title tp-resizeme white-color rs-parallaxlevel-3" id="slide-1-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-160','-170','-170','-120']"
                             data-fontsize="['70','60','60','36']" data-lineheight="['70','60','60','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="chars"
-                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Welcome to LINKUS MAID CENTER
+                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Welcome to <br> LINKUS MAID CENTER
                         </div>
 
                         <!-- LAYER NR. 2 -->
@@ -289,7 +299,7 @@
                         <div class="tp-caption NotGeneric-Title tp-resizeme white-color rs-parallaxlevel-3" id="slide-3-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-75','-70','-70','-45']"
                             data-fontsize="['70','60','60','36']" data-lineheight="['70','60','60','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-splitin="chars"
-                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">To create a long term linkages between home owners <br> and our dedicated domestic assistants.
+                            data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">To create a long term linkages <br> between home owners <br> and our dedicated domestic assistants.
                         </div>
 
                         <!-- LAYER NR. 2 -->
@@ -315,7 +325,7 @@
     </section>
     <!-- End Intro -->
 
-    <div style="background-color:  #6a737b; margin:0%">
+    <div style="background-color:  #ffffff; margin:0%">
 
         <div id="fetch">
             <article class="info">
@@ -334,16 +344,16 @@
 
 
         <!-- Start Service -->
-        <section id="service" class="p-top-80 p-bottom-80">
+        <section id="service" class="p-top-80 p-bottom-20">
             <div class="container">
 
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <!-- Section Title -->
                         <div class="section-title text-center m-bottom-40">
-                            <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s"><strong>Service</strong></h2>
+                            <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s"><strong>Services</strong></h2>
                             <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
-                            <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em>Cordially convinced did incommode existence put out suffering certainly. Besides another and saw ferrars limited ten say unknown. So mainly it was not that difficult to understand.</em></p>
+                            <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em></em></p>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -473,70 +483,70 @@
                 </a>
             </div> -->
         </div>
+    </div>
 
 
+    <!-- Start Contact -->
+    <section id="contact" class="p-top-20 " style="background-color: #6a737b; margin-top:10%;">
+        <div class="container">
 
-        <!-- Start Contact -->
-        <section id="contact" class="p-top-80 p-bottom-50">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <!-- Section Title -->
-                        <div class="section-title text-center m-bottom-40">
-                            <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s">Contact</h2>
-                            <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
-                            <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em>Feel free to conatct us for any queries our team is at your service 24/7 </em></p>
-                        </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <!-- Section Title -->
+                    <div class="section-title text-center m-bottom-40">
+                        <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s">Contact</h2>
+                        <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
+                        <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><em>Feel free to conatct us for any queries our team is at your service 24/7 </em></p>
                     </div>
-                    <!-- /.col -->
                 </div>
-                <!-- /.row -->
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
 
-                <div class="row">
+            <div class="row">
 
-                    <!-- === Contact Form === -->
-                    <div class="col-md-7 col-sm-7 p-bottom-30">
-                        <div class="contact-form row">
+                <!-- === Contact Form === -->
+                <div class="col-md-7 col-sm-7 p-bottom-30">
+                    <div class="contact-form row">
 
-                            <form name="ajax-form" id="ajax-form" action="/email" method="post">
-                                <div class="col-sm-6 contact-form-item wow zoomIn">
-                                    <input name="name" id="name" type="text" placeholder="Your Name: *" />
-                                    <span class="error" id="err-name">please enter name</span>
-                                </div>
-                                <div class="col-sm-6 contact-form-item wow zoomIn">
-                                    <input name="email" id="email" type="text" placeholder="E-Mail: *" />
-                                    <span class="error" id="err-email">please enter e-mail</span>
-                                    <span class="error" id="err-emailvld">e-mail is not a valid format</span>
-                                </div>
-                                <div class="col-sm-6 contact-form-item wow zoomIn">
-                                    <input name="subject" id="subject" type="text" placeholder="Message Subject: *" />
-                                    <span class="error" id="err-name">please enter Subject</span>
-                                </div>
-                                <div class="col-sm-12 contact-form-item wow zoomIn">
-                                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                                </div>
-                                <div class="col-sm-12 contact-form-item">
-                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">submit</button>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
-                                <div class="error text-align-center" id="err-timedout">The connection to the server timed out!</div>
-                                <div class="error" id="err-state"></div>
-                            </form>
-
-                            <div class="clearfix"></div>
-                            <div id="ajaxsuccess">Successfully sent!!</div>
+                        <form name="ajax-form" id="ajax-form" action="/email" method="post">
+                            <div class="col-sm-6 contact-form-item wow zoomIn">
+                                <input name="name" id="name" type="text" placeholder="Your Name: *" />
+                                <span class="error" id="err-name">please enter name</span>
+                            </div>
+                            <div class="col-sm-6 contact-form-item wow zoomIn">
+                                <input name="email" id="email" type="text" placeholder="E-Mail: *" />
+                                <span class="error" id="err-email">please enter e-mail</span>
+                                <span class="error" id="err-emailvld">e-mail is not a valid format</span>
+                            </div>
+                            <div class="col-sm-6 contact-form-item wow zoomIn">
+                                <input name="subject" id="subject" type="text" placeholder="Message Subject: *" />
+                                <span class="error" id="err-name">please enter Subject</span>
+                            </div>
+                            <div class="col-sm-12 contact-form-item wow zoomIn">
+                                <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-sm-12 contact-form-item">
+                                <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">submit</button>
+                            </div>
                             <div class="clear"></div>
+                            <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
+                            <div class="error text-align-center" id="err-timedout">The connection to the server timed out!</div>
+                            <div class="error" id="err-state"></div>
+                        </form>
 
-                        </div>
-                        <!-- /.contacts-form & inner row -->
+                        <div class="clearfix"></div>
+                        <div id="ajaxsuccess">Successfully sent!!</div>
+                        <div class="clear"></div>
+
                     </div>
-                    <!-- /.col -->
+                    <!-- /.contacts-form & inner row -->
+                </div>
+                <!-- /.col -->
 
-                    <!-- === Contact Information === -->
-                    <div class="col-md-5 col-sm-5 p-bottom-30">
-                        <address class="contact-info">
+                <!-- === Contact Information === -->
+                <div class="col-md-5 col-sm-5 p-bottom-30">
+                    <address class="contact-info">
 
                         <p class="m-bottom-30 wow slideInRight">Spring formal no county ye waited. My whether cheered at regular it of promise blushes perhaps.</p>
 
@@ -577,165 +587,183 @@
                             <div class="contact-info-text">
                                 sylviakaliki@gmail.com
                             </div>
+                            
+                              <!-- === WhatsApp === -->
+                        <div class="m-top-20 wow slideInRight">
+                            <div class="contact-info-icon">
+                                <a href="  https://wa.me/260971047402">     <i class="fa fa-whatsapp fa-2x" style="color:green"></i> </a>
+                            </div>
+                            <div class="contact-info-title">
+                                WhatsApp Us
+                            </div>
+                            <!-- <div class="contact-info-text">
+                                sylviakaliki@gmail.com
+                            </div> -->
+<!--                             
+    <div class="contact-info-icon"> 
+        <a href="  https://wa.me/260971047402">  <i class="fa fa-envelope"></i> </a>
+
+    </div>
+                            -->
+                        </div>
                         </div>
 
                     </address>
-                    </div>
-                    <!-- /.col -->
-
                 </div>
-                <!-- /.row -->
+                <!-- /.col -->
+
             </div>
-            <!-- /.container -->
-        </section>
-        <!-- End Contact -->
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- End Contact -->
 
-
-        <!-- Start Footer -->
-        <footer class="site-footer">
-            <div class="container">
-                <small class="copyright pull-left">Designed by Cathbert The Programmer. <a href="http://www.tabthemes.com/">tabthemes</a>.</small>
-                <div class="social-icon pull-right">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                    <a href="#"><i class="fa fa-rss"></i></a>
-                    <a href="#"><i class="fa fa-globe"></i></a>
-                </div>
-                <!-- /social-icon -->
+    <!-- Start Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <small class="copyright pull-left">Designed by Cathbert The Programmer. <a href="http://www.tabthemes.com/">tabthemes</a>.</small>
+            <div class="social-icon pull-right">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="#"><i class="fa fa-google"></i></a>
+                <a href="#"><i class="fa fa-rss"></i></a>
+                <a href="#"><i class="fa fa-globe"></i></a>
             </div>
-            <!-- /container -->
-        </footer>
-        <!-- End Footer -->
+            <!-- /social-icon -->
+        </div>
+        <!-- /container -->
+    </footer>
+    <!-- End Footer -->
 
 
-        <!-- Back to top -->
-        <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a>
-        <!-- /Back to top -->
+    <!-- Back to top -->
+    <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a>
+    <!-- /Back to top -->
 
 
-        <!-- jQuery -->
-        <script src="static/material/js/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="static/material/js/jquery.min.js"></script>
 
-        <!-- Bootstrap -->
-        <script src="static/material/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="static/material/bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- Components Plugin -->
-        <script src="static/material/js/jquery.easing.1.3.js"></script>
-        <script src="static/material/js/smooth-scroll.js"></script>
-        <script src="static/material/js/jquery.appear.js"></script>
-        <script src="static/material/js/jquery.countTo.js"></script>
-        <script src="static/material/js/jquery.stellar.min.js"></script>
-        <script src="static/material/js/jquery.magnific-popup.min.js"></script>
-        <script src="static/material/js/imagesloaded.pkgd.min.js"></script>
-        <script src="static/material/js/isotope.pkgd.min.js"></script>
-        <script src="static/material/js/jquery.mb.YTPlayer.js"></script>
-        <script src="static/material/js/retina.min.js"></script>
-        <script src="static/material/js/wow.min.js"></script>
-        <script src="static/material/inc/owlcarousel/js/owl.carousel.min.js"></script>
-        <script src="static/material/inc/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="static/material/inc/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- Components Plugin -->
+    <script src="static/material/js/jquery.easing.1.3.js"></script>
+    <script src="static/material/js/smooth-scroll.js"></script>
+    <script src="static/material/js/jquery.appear.js"></script>
+    <script src="static/material/js/jquery.countTo.js"></script>
+    <script src="static/material/js/jquery.stellar.min.js"></script>
+    <script src="static/material/js/jquery.magnific-popup.min.js"></script>
+    <script src="static/material/js/imagesloaded.pkgd.min.js"></script>
+    <script src="static/material/js/isotope.pkgd.min.js"></script>
+    <script src="static/material/js/jquery.mb.YTPlayer.js"></script>
+    <script src="static/material/js/retina.min.js"></script>
+    <script src="static/material/js/wow.min.js"></script>
+    <script src="static/material/inc/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="static/material/inc/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="static/material/inc/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
-        <!-- Contact Form -->
-        <script src="static/material/js/contact.js"></script>
+    <!-- Contact Form -->
+    <script src="static/material/js/contact.js"></script>
 
-        <!-- Custom Plugin -->
-        <script src="static/material/js/custom.js"></script>
+    <!-- Custom Plugin -->
+    <script src="static/material/js/custom.js"></script>
 
-        <!-- RS Plugin Extensions -->
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-        <script src="static/material/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <!-- RS Plugin Extensions -->
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="static/material/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 
 
-        <script>
-            var tpj = jQuery;
+    <script>
+        var tpj = jQuery;
 
-            var revapi280;
-            tpj(document).ready(function() {
-                if (tpj("#rev_slider_nagency").revolution == undefined) {
-                    revslider_showDoubleJqueryError("#rev_slider_nagency");
-                } else {
-                    revapi280 = tpj("#rev_slider_nagency").show().revolution({
-                        sliderType: "standard",
-                        sliderLayout: "fullscreen",
-                        dottedOverlay: "none",
-                        delay: 90000,
-                        navigation: {
-                            keyboardNavigation: "off",
-                            keyboard_direction: "horizontal",
-                            mouseScrollNavigation: "off",
-                            onHoverStop: "off",
-                            touch: {
-                                touchenabled: "on",
-                                swipe_threshold: 75,
-                                swipe_min_touches: 1,
-                                swipe_direction: "horizontal",
-                                drag_block_vertical: false
+        var revapi280;
+        tpj(document).ready(function() {
+            if (tpj("#rev_slider_nagency").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_nagency");
+            } else {
+                revapi280 = tpj("#rev_slider_nagency").show().revolution({
+                    sliderType: "standard",
+                    sliderLayout: "fullscreen",
+                    dottedOverlay: "none",
+                    delay: 4000,
+                    navigation: {
+                        keyboardNavigation: "off",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        onHoverStop: "off",
+                        touch: {
+                            touchenabled: "on",
+                            swipe_threshold: 75,
+                            swipe_min_touches: 1,
+                            swipe_direction: "horizontal",
+                            drag_block_vertical: false
+                        },
+                        arrows: {
+                            style: "uranus",
+                            enable: true,
+                            hide_onmobile: true,
+                            hide_under: 496,
+                            hide_onleave: true,
+                            hide_delay: 200,
+                            hide_delay_mobile: 1200,
+                            tmp: '',
+                            left: {
+                                h_align: "left",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
                             },
-                            arrows: {
-                                style: "uranus",
-                                enable: true,
-                                hide_onmobile: true,
-                                hide_under: 496,
-                                hide_onleave: true,
-                                hide_delay: 200,
-                                hide_delay_mobile: 1200,
-                                tmp: '',
-                                left: {
-                                    h_align: "left",
-                                    v_align: "center",
-                                    h_offset: 20,
-                                    v_offset: 0
-                                },
-                                right: {
-                                    h_align: "right",
-                                    v_align: "center",
-                                    h_offset: 20,
-                                    v_offset: 0
-                                }
+                            right: {
+                                h_align: "right",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
                             }
-                        },
-                        responsiveLevels: [1200, 991, 767, 480],
-                        visibilityLevels: [1200, 991, 767, 480],
-                        gridwidth: [1200, 991, 767, 480],
-                        gridheight: [868, 768, 960, 720],
-                        lazyType: "none",
-                        parallax: {
-                            type: "mouse+scroll",
-                            origo: "slidercenter",
-                            speed: 2000,
-                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
-                            disable_onmobile: "on"
-                        },
-                        shadow: 0,
-                        spinner: "spinner2",
-                        autoHeight: "off",
-                        fullScreenAutoWidth: "off",
-                        fullScreenAlignForce: "off",
-                        fullScreenOffsetContainer: "",
-                        fullScreenOffset: "0",
-                        disableProgressBar: "on",
-                        hideThumbsOnMobile: "off",
-                        hideSliderAtLimit: 0,
-                        hideCaptionAtLimit: 0,
-                        hideAllCaptionAtLilmit: 0,
-                        debugMode: false,
-                        fallbacks: {
-                            simplifyAll: "off",
-                            disableFocusListener: false,
                         }
-                    });
-                }
-            }); /*ready*/
-        </script>
+                    },
+                    responsiveLevels: [1200, 991, 767, 480],
+                    visibilityLevels: [1200, 991, 767, 480],
+                    gridwidth: [1200, 991, 767, 480],
+                    gridheight: [868, 768, 960, 720],
+                    lazyType: "none",
+                    parallax: {
+                        type: "mouse+scroll",
+                        origo: "slidercenter",
+                        speed: 2000,
+                        levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                        disable_onmobile: "on"
+                    },
+                    shadow: 0,
+                    spinner: "spinner2",
+                    autoHeight: "off",
+                    fullScreenAutoWidth: "off",
+                    fullScreenAlignForce: "off",
+                    fullScreenOffsetContainer: "",
+                    fullScreenOffset: "0",
+                    disableProgressBar: "on",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        disableFocusListener: false,
+                    }
+                });
+            }
+        }); /*ready*/
+    </script>
 
 
 </body>
